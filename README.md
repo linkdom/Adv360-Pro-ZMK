@@ -1,4 +1,5 @@
 # Kinesis Advantage 360 Pro ZMK Config
+trigger artifact
 
 ## Modifying the keymap
 
