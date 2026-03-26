@@ -18,41 +18,23 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
-#include <dt-bindings/zmk/modifiers.h>
+
+/* Linux host unicode input for zmk-helpers unicode macros. */
+#define HOST_OS 1
 
 #include "zmk-helpers/helper.h"
 
 // Source desired key-position labels
 #include "zmk-helpers/key-labels/glove80.h"
 
+ZMK_UNICODE_PAIR(de_ae, N0, N0, E, N4, N0, N0, C, N4)
+ZMK_UNICODE_PAIR(de_oe, N0, N0, F, N6, N0, N0, D, N6)
+ZMK_UNICODE_PAIR(de_ue, N0, N0, F, C,  N0, N0, D, C)
+
 / {
   behaviors {
     #include "macros.dtsi"
     #include "version.dtsi"
-
-    de_ae: de_ae {
-        compatible = "zmk,behavior-mod-morph";
-        label = "DE_AE";
-        #binding-cells = <0>;
-        bindings = <&u 0x00E4>, <&u 0x00C4>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    de_oe: de_oe {
-        compatible = "zmk,behavior-mod-morph";
-        label = "DE_OE";
-        #binding-cells = <0>;
-        bindings = <&u 0x00F6>, <&u 0x00D6>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    de_ue: de_ue {
-        compatible = "zmk,behavior-mod-morph";
-        label = "DE_UE";
-        #binding-cells = <0>;
-        bindings = <&u 0x00FC>, <&u 0x00DC>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
 
     hm: homerow_mods {
         compatible = "zmk,behavior-hold-tap";
